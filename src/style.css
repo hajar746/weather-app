@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+}
+
+/* HOME PAGE */
+.app-name {
+  font-weight: 400;
+}
+
+.logo {
+  height: 200px;
+  width: 200px;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+  margin: 1rem;
+  height: 100%;
+}
+
+.form-search {
+  margin: 1.2rem;
+  padding: 0.7rem 0.6rem;
+  max-width: 700px;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 60px;
+  background-color: rgba(167, 214, 241, 0.4);
+}
+
+.form-search input {
+  background: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 0.8rem 1rem;
+  font-size: 1.2rem;
+}
+
+.form-search button img {
+  width: 2.7rem;
+}
+
+.form-search button {
+  border: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0.4rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.form-search button img:hover {
+  transform: scale(1.1);
+}
+
+::placeholder {
+  color: #000;
+}
