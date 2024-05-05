@@ -29,40 +29,35 @@ export function makePage(data, div) {
       </div>
       </div>
       <div class='div-weather-info'>
-      <div class="weather-info">
-        <div class="feels-like info">
+        <div class="info">
           <h3>Feels like</h3>
           <p>${data.current.feelslike_c}</p>
         </div>
-        <div class="chance info">
+        <div class="info">
           <h3>Chance of rain</h3>
           <p>${data.forecast.forecastday[0].day.daily_chance_of_rain}</p>
         </div>
-        <div class="humidity info">
+        <div class="info">
           <h3>Humidity</h3>
           <p>${data.current.humidity}</p>
         </div>
-        <div class="wind info">
+        <div class="info">
           <h3>Wind</h3>
           <p>${data.forecast.forecastday[0].day.maxwind_kph}</p>
         </div>
-      </div>
-      <div class="weather-info">
-        <div class="high-temp info">
+        <div class="info">
           <h3>Highest temp</h3>
           <p>${data.forecast.forecastday[0].day.maxtemp_c}</p>
         </div>
-        <div class="low-temp info">
+        <div class="info">
           <h3>Lowest temp</h3>
           <p>${data.forecast.forecastday[0].day.mintemp_c}</p>
         </div>
-        <div class="uv info">
+        <div class="info">
           <h3>UV index</h3>
           <p>${data.current.uv}</p>
         </div>
       </div>
-      </div>
-      <div class="weather">
       <div class="hourly">
         <h2>Hourly Forecast</h2>
         <ul class="hourly-divs">
@@ -100,7 +95,27 @@ export function makePage(data, div) {
           </li>
         </ul>
       </div>
-    </div>
+    <div class="daily">
+        <h2>Daily Forecast</h2>
+        <ul class="daily-divs">
+          <li class="daily-div">
+            <h3>${data.forecast.forecastday[0].date}</h3>
+            <img src="${data.forecast.forecastday[0].day.condition.icon}" alt="">
+            <p>${data.forecast.forecastday[0].day.maxtemp_c}/${data.forecast.forecastday[0].day.maxtemp_c}</p>
+          </li>
+          <li class="daily-div">
+            <h3>${data.forecast.forecastday[1].date}</h3>
+            <img src="${data.forecast.forecastday[1].day.condition.icon}" alt="">
+            <p>${data.forecast.forecastday[1].day.maxtemp_c}/${data.forecast.forecastday[1].day.maxtemp_c}</p>
+          </li>
+          <li class="daily-div">
+            <h3>${data.forecast.forecastday[2].date}</h3>
+            <img src="${data.forecast.forecastday[2].day.condition.icon}" alt="">
+            <p>${data.forecast.forecastday[2].day.maxtemp_c}/${data.forecast.forecastday[2].day.maxtemp_c}</p>
+          </li>
+          
+        </ul>
+      </div>
 `
   );
 }
