@@ -72,6 +72,42 @@ body {
   color: #000;
 }
 
+#degree {
+  -webkit-appearance: none;
+  position: relative;
+  max-width: 65px;
+  height: 35px;
+  border-radius: 25px;
+  background-color: #ccc;
+  transition: background-color 0.3s;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+#degree::after {
+  content: "°C";
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  height: 1.4rem;
+  width: 1.4rem;
+  background-color: #fff;
+  transition: left 0.3s;
+  padding: 2.5px;
+}
+
+#degree:checked {
+  background-color: #aedaf3;
+}
+
+#degree:checked::after {
+  content: "°F";
+  left: 70%;
+}
+
 /* WEATHER DIV */
 
 .main {
