@@ -1,3 +1,13 @@
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
 // ASYNC FUNCTION TO FETCH WEATHER DATA OBJECT
 export async function getWeatherForecast(location) {
   try {
@@ -22,7 +32,9 @@ export function makePage(data, div, measurement) {
       <h1 class="temperature">${
         measurement === "°C" ? data.current.temp_c : data.current.temp_f
       }${measurement}</h1>
-         <img src="${data.current.condition.icon}" alt="temp-icon" />
+         <img src="${
+           data.current.condition.icon
+         }" alt="temp-icon" class='main-icon'/>
           <h3>${data.current.condition.text}</h3>
       </div>
           <div class= 'city'>
@@ -82,49 +94,49 @@ export function makePage(data, div, measurement) {
         <h2>Hourly Forecast</h2>
         <ul class="hourly-divs">
           <li class="hourly-div">
-            <p>${data.forecast.forecastday[0].hour[7].time}</p>
+            <p>${data.forecast.forecastday[0].hour[7].time.substring(10)}</p>
             <img src="${
               data.forecast.forecastday[0].hour[7].condition.icon
             }" alt="" />
           </li>
           <li class="hourly-div">
-            <p>${data.forecast.forecastday[0].hour[8].time}</p>
+            <p>${data.forecast.forecastday[0].hour[8].time.substring(10)}</p>
             <img src="${
               data.forecast.forecastday[0].hour[8].condition.icon
             }" alt="" />
           </li>
           <li class="hourly-div">
-            <p>${data.forecast.forecastday[0].hour[9].time}</p>
+            <p>${data.forecast.forecastday[0].hour[9].time.substring(10)}</p>
             <img src="${
               data.forecast.forecastday[0].hour[9].condition.icon
             }" alt="" />
           </li>
           <li class="hourly-div">
-            <p>${data.forecast.forecastday[0].hour[10].time}</p>
+            <p>${data.forecast.forecastday[0].hour[10].time.substring(10)}</p>
             <img src="${
               data.forecast.forecastday[0].hour[10].condition.icon
             }" alt="" />
           </li>
           <li class="hourly-div">
-            <p>${data.forecast.forecastday[0].hour[11].time}</p>
+            <p>${data.forecast.forecastday[0].hour[11].time.substring(10)}</p>
             <img src="${
               data.forecast.forecastday[0].hour[11].condition.icon
             }" alt="" />
           </li>
           <li class="hourly-div">
-            <p>${data.forecast.forecastday[0].hour[12].time}</p>
+            <p>${data.forecast.forecastday[0].hour[12].time.substring(10)}</p>
             <img src="${
               data.forecast.forecastday[0].hour[12].condition.icon
             }" alt="" />
           </li>
           <li class="hourly-div">
-            <p>${data.forecast.forecastday[0].hour[13].time}</p>
+            <p>${data.forecast.forecastday[0].hour[13].time.substring(10)}</p>
             <img src="${
               data.forecast.forecastday[0].hour[13].condition.icon
             }" alt="" />
           </li>
           <li class="hourly-div">
-            <p>${data.forecast.forecastday[0].hour[14].time}</p>
+            <p>${data.forecast.forecastday[0].hour[14].time.substring(10)}</p>
             <img src="${
               data.forecast.forecastday[0].hour[14].condition.icon
             }" alt="" />
@@ -135,31 +147,55 @@ export function makePage(data, div, measurement) {
         <h2>Daily Forecast</h2>
         <ul class="daily-divs">
           <li class="daily-div">
-            <h3>${data.forecast.forecastday[0].date}</h3>
+            <h3>${
+              days[new Date(data.forecast.forecastday[0].date).getDay()]
+            }</h3>
             <img src="${
               data.forecast.forecastday[0].day.condition.icon
             }" alt="">
-            <p>${data.forecast.forecastday[0].day.maxtemp_c}/${
-      data.forecast.forecastday[0].day.maxtemp_c
-    }</p>
+            <p>${
+              measurement === "°C"
+                ? data.forecast.forecastday[0].day.maxtemp_c
+                : data.forecast.forecastday[0].day.maxtemp_f
+            }${measurement} / ${
+      measurement === "°C"
+        ? data.forecast.forecastday[0].day.mintemp_c
+        : data.forecast.forecastday[0].day.mintemp_f
+    }${measurement}</p>
           </li>
           <li class="daily-div">
-            <h3>${data.forecast.forecastday[1].date}</h3>
+            <h3>${
+              days[new Date(data.forecast.forecastday[1].date).getDay()]
+            }</h3>
             <img src="${
               data.forecast.forecastday[1].day.condition.icon
             }" alt="">
-            <p>${data.forecast.forecastday[1].day.maxtemp_c}/${
-      data.forecast.forecastday[1].day.maxtemp_c
-    }</p>
+            <p>${
+              measurement === "°C"
+                ? data.forecast.forecastday[1].day.maxtemp_c
+                : data.forecast.forecastday[1].day.maxtemp_f
+            }${measurement} / ${
+      measurement === "°C"
+        ? data.forecast.forecastday[1].day.mintemp_c
+        : data.forecast.forecastday[1].day.mintemp_f
+    }${measurement}</p>
           </li>
           <li class="daily-div">
-            <h3>${data.forecast.forecastday[2].date}</h3>
+            <h3>${
+              days[new Date(data.forecast.forecastday[2].date).getDay()]
+            }</h3>
             <img src="${
               data.forecast.forecastday[2].day.condition.icon
             }" alt="">
-            <p>${data.forecast.forecastday[2].day.maxtemp_c}/${
-      data.forecast.forecastday[2].day.maxtemp_c
-    }</p>
+            <p>${
+              measurement === "°C"
+                ? data.forecast.forecastday[2].day.maxtemp_c
+                : data.forecast.forecastday[2].day.maxtemp_f
+            }${measurement} / ${
+      measurement === "°C"
+        ? data.forecast.forecastday[2].day.mintemp_c
+        : data.forecast.forecastday[2].day.mintemp_f
+    }${measurement}</p>
           </li>
           
         </ul>

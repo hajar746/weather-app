@@ -72,6 +72,10 @@ body {
   color: #000;
 }
 
+.search-bar {
+  display: flex;
+}
+
 #degree {
   -webkit-appearance: none;
   position: relative;
@@ -151,9 +155,8 @@ body {
   margin: 0;
 }
 
-.temp-info img {
-  width: 50px;
-  height: 50px;
+.temp-info h3 {
+  align-self: flex-end;
 }
 
 .div-weather-info {
@@ -166,7 +169,7 @@ body {
   padding: 1rem;
 }
 
-/* HOURLY FORECAST */
+/* HOURLY AND DAILY FORECAST */
 .hourly,
 .daily {
   padding: 2rem;
@@ -193,12 +196,54 @@ body {
   padding: 0;
 }
 
+.daily-div p {
+  font-size: 1.1rem;
+}
+
+/* PAGE LOADER */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddd;
+  border-top-color: #aedaf3;
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0turn);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 500px) {
   .form-search,
   .form-search-2 {
-    width: 250px;
+    width: 300px;
   }
   .hourly-divs,
   .div-weather-info {
@@ -208,11 +253,17 @@ body {
   .homepage {
     flex-direction: column;
   }
-}
-
-@media (max-width: 700px) {
-  /* .form-search,
-  .form-search-2 {
-    width: 500px;
-  } */
+  .div-weather-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #degree {
+    min-width: 38px;
+    height: 28px;
+    font-size: 1rem;
+  }
+  #degree::after {
+    height: 1.2rem;
+    width: 1.2rem;
+    padding: 2px;
+  }
 }

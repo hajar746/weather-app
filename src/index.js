@@ -8,20 +8,36 @@ const degree = document.querySelector("input[id='degree']");
 const form = document.querySelector(".form-search");
 let measurement = "°C";
 
+// PAGE LOADERR
+window.addEventListener("load", function () {
+  const loader = this.document.querySelector(".loader");
+  loader.classList.add("loader-hidden");
+
+  if (weatherDiv !== "") {
+    loader.remove();
+  }
+});
+
+// DEFAULT WEATHER
 getWeatherForecast("London").then((res) => {
   makePage(res, weatherDiv, measurement);
 });
 
+// SWITCH TO F/C
+degree.addEventListener("change", function () {
+  weather();
+});
+
+// SEARCH FOR A CITY
 btnSearch.addEventListener("click", function (e) {
   if (!form.checkValidity()) return;
-  weatherDiv.textContent = "";
   e.preventDefault();
-  getWeatherForecast(location.value).then((res) => {
-    if (degree.checked) {
-      measurement = "°F";
-    } else {
-      measurement = "°C";
-    }
-    makePage(res, weatherDiv, measurement);
-  });
+  weather();
 });
+
+const weather = function () {
+  weatherDiv.textContent = "";
+  getWeatherForecast(location.value || "London").then((res) => {
+    makePage(res, weatherDiv, `${degree.checked ? "°F" : "°C"}`);
+  });
+};
